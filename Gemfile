@@ -19,6 +19,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-openid'
 gem 'omniauth-google-apps'
 gem 'omniauth-twitter'
+gem 'omniauth-linkedin' 
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'

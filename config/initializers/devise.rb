@@ -21,6 +21,10 @@ Devise.setup do |config|
   
   require 'omniauth-twitter'
   config.omniauth :twitter, "kZesBFD2sMHgo2WX95X1Sw", "H3BN6EUo70s2aQN0e6X1AJp4j3RIv3hkSuQNWgy4LgY"
+  
+  require 'omniauth-linkedin'
+  config.omniauth :linkedin, "75mgequeshe17f", "O7wbxMvG75eAMaYg"
+
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
