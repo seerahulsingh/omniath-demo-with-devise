@@ -1,0 +1,12 @@
+<h2>Hello World..!!!</h2>
+<%= link_to "Sign In", new_user_session_path %><br/>
+<%= link_to "Sign Up", new_user_registration_path %><br/>
+<%= link_to "sign_out", destroy_user_session_path, method: :delete %><br/><br/>
+<%= link_to "Sign in with Facebook using facebook-oauth", user_omniauth_authorize_path(:facebook) %><br/><br/>
+<%= link_to "sign in with google using google-oauth2</div>".html_safe, user_omniauth_authorize_path(:google_oauth2) %><br/><br/>
+<%= link_to "Sign in with Twitter", "#" %><br/><br/>
+<%= link_to "Sign in with Linkedin", "#" %><br/><br/>
+<%= link_to "Sign in with Github", "#" %><br/><br/>
+<%=link_to "sign in with yahoo with open-id", user_omniauth_authorize_path(:open_id, :openid_url => "http://yahoo.com")%><br/><br/>
+<%= link_to "sign in with google with open id", user_omniauth_authorize_path(:google) %><br/><br/>
+<%= link_to 'GMail using gem omniauth-google-apps ans open_id', user_omniauth_authorize_path(:google_apps) %>
