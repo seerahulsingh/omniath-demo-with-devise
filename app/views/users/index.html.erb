@@ -10,3 +10,6 @@
 <%=link_to "sign in with yahoo with open-id", user_omniauth_authorize_path(:open_id, :openid_url => "http://yahoo.com")%><br/><br/>
 <%= link_to "sign in with google with open id", user_omniauth_authorize_path(:google) %><br/><br/>
 <%= link_to 'GMail using gem omniauth-google-apps ans open_id', user_omniauth_authorize_path(:google_apps) %>
+
+<br/><br/>
+<%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>

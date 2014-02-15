@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :open_id, :google, :google_apps]
+  devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :open_id, :google, :google_apps, :twitter]
   
 
   validates :email, uniqueness: true
@@ -84,6 +84,26 @@ class User < ActiveRecord::Base
     super.tap do |user|
       if data = session['devise.googleapps_data'] && session['devise.googleapps_data']['user_info']
         user.email = data['email']
+      end
+    end
+  end
+
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
+    else
+      registered_user = User.where(:email => auth.uid + "@twitter.com").first
+      if registered_user
+        return registered_user
+      else
+
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            email:auth.uid+"@twitter.com",
+                            password:Devise.friendly_token[0,20],
+                          )
       end
     end
   end

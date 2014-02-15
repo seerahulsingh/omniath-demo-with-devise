@@ -18,6 +18,9 @@ Devise.setup do |config|
   config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
 
   config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
+  
+  require 'omniauth-twitter'
+  config.omniauth :twitter, "kZesBFD2sMHgo2WX95X1Sw", "H3BN6EUo70s2aQN0e6X1AJp4j3RIv3hkSuQNWgy4LgY"
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
